@@ -4,7 +4,7 @@ Triangle::Triangle(double side, double height) {
 	setSide(side);
 	setHeight(height);
 }
-double Triangle::area() {
+double Triangle::area() const {
 	return this->side * this->height / 2;
 }
 void Triangle::setSide(double side) {
@@ -20,9 +20,9 @@ void Triangle::setHeight(double height) {
 	}
 	this->height = height;
 }
-double Triangle::getSide() {
+double Triangle::getSide() const{
 	return this->side;
 }
-double Triangle::getHeight() {
+double Triangle::getHeight() const{
 	return this->height;
 }
