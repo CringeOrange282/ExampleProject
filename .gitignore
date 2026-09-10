@@ -2,3 +2,5 @@ x64/
 ExampleProject/x64/
 ExampleProject/ExampleProject.vcxproj.user
 .vs/
+packages
+packages
