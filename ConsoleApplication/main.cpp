@@ -1,28 +1,35 @@
 #include <iostream>
+#include <stdexcept>
 #include "Triangle.h"
 
 int main() {
-	while (1) {
-		try {
-			double a, h, s;
-			std::cout << "Enter side of a triangle" << std::endl;
-			if (!(std::cin >> a) || a<=0) {
-				throw std::invalid_argument("negative number\n");
-			}
+    while (true) {
+        double a, h;
 
-			std::cout << "Enter height of a triangle" << std::endl;
-			if (!(std::cin >> h) || h<=0) {
-				throw std::invalid_argument("negative number\n");
-			}
-			Triangle first(a, h);
-			std::cout << "area of triangle:" << first.area();
-			break;
-		}
-		catch (std::invalid_argument) {
-			if (std::cin.fail()) {
-				std::cin.clear();
-				std::cin.ignore(10, '\n');
-			}
-		}
-	}
+        std::cout << "Enter side of a triangle: " << std::endl;
+        if (!(std::cin >> a)) {
+            std::cout << "Invalid input format. Try again.\n" << std::endl;
+            std::cin.clear();
+            std::cin.ignore(100, '\n');
+            continue;
+        }
+
+        std::cout << "Enter height of a triangle: " << std::endl;
+        if (!(std::cin >> h)) {
+            std::cout << "Invalid input format. Try again.\n" << std::endl;
+            std::cin.clear();
+            std::cin.ignore(100, '\n');
+            continue;
+        }
+
+        try {
+            Triangle first(a, h);
+            std::cout << "Area of triangle: " << first.calculateArea() << std::endl;
+            break;
+        }
+        catch (const std::invalid_argument& e) {
+            std::cout << "Error: " << e.what() << " Try again.\n" << std::endl;
+        }
+    }
+    return 0;
 }

@@ -3,7 +3,7 @@
 
 TEST(TriangleTests, areaTest) {
 	Triangle first(5, 5);
-	EXPECT_DOUBLE_EQ(first.area(), 12.5);
+	EXPECT_DOUBLE_EQ(first.calculateArea(), 12.5);
 }
 
 TEST(TriangleTests, throwTest1) {
@@ -16,7 +16,7 @@ TEST(TriangleTests, throwTest2) {
 TEST(TriangleTests, setSideTest) {
 	Triangle first(5, 5);
 	first.setSide(4);
-	EXPECT_EQ(first.getSide(), 4);
+	EXPECT_DOUBLE_EQ(first.getSide(), 4.0);
 }
 
 TEST(TriangleTests, setHeightTest) {
@@ -29,5 +29,5 @@ TEST(TriangleTests, areaChangeTest) {
 	Triangle first(5, 5);
 	first.setSide(10);
 	first.setHeight(4); 
-	EXPECT_DOUBLE_EQ(first.area(), 20.0);
+	EXPECT_DOUBLE_EQ(first.calculateArea(), 20.0);
 }
